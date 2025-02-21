@@ -1,0 +1,28 @@
+﻿@model IEnumerable<T_Veterinaria.Models.ViewModels.ListarRecetaViewModels>
+
+@{
+    ViewBag.Title = "Indicaciones de la Receta";
+}
+
+<h2 class="text-center mt-4">Indicaciones de la Receta</h2>
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group my-3">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <strong>Indicaciones:</strong> @item.Indicaciones
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-center text-muted">No hay indicaciones disponibles para esta receta.</p>
+}
+
+<div class="text-center mt-3">
+    <a href="@Url.Action("Receta", "Receta")" class="btn btn-primary">Volver a la Lista de Recetas</a>
+</div>

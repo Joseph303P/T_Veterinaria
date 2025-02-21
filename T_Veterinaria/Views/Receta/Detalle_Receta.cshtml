@@ -1,0 +1,30 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarRecetaViewModels>
+@{
+    ViewBag.Title = "Detalle_Receta";
+}
+
+<h2>Detalle Receta</h2>
+
+<div class="text-center mt-3">
+    <a href="@Url.Action("Receta", "Receta")" class="btn btn-primary">Volver a la Lista de Recetas</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>RecetaID</th>
+                <th>Descripcion</th>
+                <th>Medicamnetos</th>
+            </tr>
+            @foreach (var oElement in Model)
+            {
+                <tr>
+                    <td>@oElement.RecetaID</td>
+                    <td>@oElement.Descripcion</td>
+                    <td>@oElement.Detalles</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

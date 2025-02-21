@@ -1,0 +1,42 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.DiagnosticoViewModels>
+@{
+    ViewBag.Title = "Diagnostico";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Diagnósticos</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver a Inicio</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>DiagnósticoID</th>
+                    <th>CitaID</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.DiagnosticoID</td>
+                        <td>@oElement.CitaID</td>
+                        <td>
+                            <a class="btn btn-outline-info btn-sm mt-1" href="~/Diagnostico/VisualizarDiagnostico?DiagnosticoID=@oElement.DiagnosticoID">Ver Diagnóstico</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Diagnostico/EditarDiagnostico/@oElement.DiagnosticoID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Diagnostico/EliminarDiagnostico/@oElement.DiagnosticoID"
+                               onclick="return confirm('¿Seguro que desea eliminar este diagnóstico?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

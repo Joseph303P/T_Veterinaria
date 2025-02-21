@@ -1,0 +1,45 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarRecetaViewModels>
+@{
+    ViewBag.Title = "Receta";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Recetas</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver al Inicio</a>
+        <a class="btn btn-outline-dark" href="~/Receta/Detalle_Receta">Detalle Receta</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>RecetaID</th>
+                    <th>DiagnósticoID</th>
+                    <th>TratamientoID</th>
+                    <th>Indicaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.RecetaID</td>
+                        <td>@oElement.DiagnosticoID</td>
+                        <td>@oElement.TratamientoID</td>
+                        <td>
+                            <a class="btn btn-outline-info btn-sm mt-1" href="~/Receta/VisualizarIndicaciones?recetaId=@oElement.RecetaID">Ver Indicaciones</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Receta/EditarReceta/@oElement.RecetaID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Receta/EliminarReceta/@oElement.RecetaID"
+                               onclick="return confirm('¿Seguro que desea eliminar esta receta?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

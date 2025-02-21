@@ -1,0 +1,41 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarDetallePago>
+@{
+    ViewBag.Title = "DetallePago";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Detalles de Pago</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver al Inicio</a>
+        <a class="btn btn-outline-danger me-2" href="~/Pago/Pago">Pagos Realizados</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>DetalleID</th>
+                    <th>PagoID</th>
+                    <th>CitaID</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.DetalleID</td>
+                        <td>@oElement.PagoID</td>
+                        <td>@oElement.CitaID</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/DetallePago/EditarDetallePago/@oElement.DetalleID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/DetallePago/EliminarDetallePago/@oElement.DetalleID"
+                               onclick="return confirm('¿Seguro que desea eliminar este detalle de pago?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

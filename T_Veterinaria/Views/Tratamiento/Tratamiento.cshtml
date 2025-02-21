@@ -1,0 +1,44 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.TratamientoViewModels>
+
+@{
+    ViewBag.Title = "Tratamiento";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Lista de Tratamientos</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver al Inicio</a>
+        <a class="btn btn-outline-success" href="~/Tratamiento/NuevoTratamiento">Agregar Tratamiento</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>TratamientoID</th>
+                    <th>Detalles</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.TratamientoID</td>
+                        <td>
+                            <a class="btn btn-outline-info btn-sm mt-1" href="~/Tratamiento/VisualizarTrataimiento?TratamientoID=@oElement.TratamientoID">
+                                Ver Detalle de Tratamiento
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary me-1" href="~/Tratamiento/EditarTratamiento/@oElement.TratamientoID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Tratamiento/EliminarTratamiento/@oElement.TratamientoID"
+                               onclick="return confirm('¿Seguro que desea eliminar este tratamiento?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model T_Veterinaria.Models.New.NuevoDetallePago
+@{
+    ViewBag.Title = "Nuevo Detalle de Pago";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 30rem;">
+        <h2 class="text-center">Nuevo Detalle de Pago</h2>
+
+        @using (Html.BeginForm("NuevoDetallePago", "DetallePago", FormMethod.Post))
+        {
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.PagoID, "Seleccionar un Pago", new { @class = "form-label" })
+                @Html.DropDownListFor(d => d.PagoID, (IEnumerable<SelectListItem>)ViewBag.PagosNoAsociados, "Selecciona un Pago", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.PagoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.CitaID, "Seleccionar una Cita", new { @class = "form-label" })
+                @Html.DropDownListFor(d => d.CitaID, (IEnumerable<SelectListItem>)ViewBag.CitasNoAsociadas, "Selecciona una Cita", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.CitaID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <a class="btn btn-outline-danger me-2" href="~/DetallePago/DetallePago">Cancelar</a>
+                <a class="btn btn-outline-warning" href="~/Citas/Citas_Person_Masc">Ver Detalle</a>
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        }
+    </div>
+</div>
+
+

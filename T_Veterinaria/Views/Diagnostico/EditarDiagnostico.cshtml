@@ -1,0 +1,34 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarDiagnostico
+@{
+    ViewBag.Title = "Editar Diagnóstico";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 30rem;">
+        <h2 class="text-center">Editar Diagnóstico</h2>
+
+        @using (Html.BeginForm("EditarDiagnostico", "Diagnostico", FormMethod.Post))
+        {
+            @Html.HiddenFor(d => d.DiagnosticoID)
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.CitaID, "Cita", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.CitaID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.CitaID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.Descripcion, null, new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.Descripcion, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Descripcion, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-4">
+                <a class="btn btn-outline-danger me-2" href="~/Diagnostico/Diagnostico">Cancelar</a>
+                <div class="ms-auto">
+                    <input value="Guardar" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

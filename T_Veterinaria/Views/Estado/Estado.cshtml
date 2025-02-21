@@ -1,0 +1,39 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.EstadoViewModels>
+@{
+    ViewBag.Title = "Estado";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Estados</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver a Inicio</a>
+        <a class="btn btn-outline-success" href="~/Estado/NuevoEstado">Agregar Estado</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>EstadoID</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.EstadoID</td>
+                        <td>@oElement.Descripcion</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Estado/EditarEstado/@oElement.EstadoID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Estado/EliminarEstado/@oElement.EstadoID"
+                               onclick="return confirm('¿Seguro que desea eliminar este estado?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

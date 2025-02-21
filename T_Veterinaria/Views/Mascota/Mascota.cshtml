@@ -1,0 +1,47 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarMascotaViewModels>
+@{
+    ViewBag.Title = "Mascota";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Mascotas</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver</a>
+        <a class="btn btn-outline-dark me-2" href="~/Mascota/Cliente_Mascota">Ver Cliente</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>MascotaID</th>
+                    <th>ClienteID</th>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.MascotaID</td>
+                        <td>@oElement.ClienteID</td>
+                        <td>@oElement.Nombre</td>
+                        <td>@oElement.Especie</td>
+                        <td>@oElement.Raza</td>
+                        <td>@oElement.Edad</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Mascota/EditarMascota/@oElement.MascotaID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Mascota/EliminarMascota/@oElement.MascotaID"
+                               onclick="return confirm('Seguro que desea eliminar esta mascota?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

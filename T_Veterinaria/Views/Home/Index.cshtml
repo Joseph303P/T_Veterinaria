@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="container mt-5">s
+    <h1 class="text-center mb-4" style="color: #4b7f52;">Bienvenido a Nuestra Veterinaria</h1>
+    <p class="text-center text-muted">Cuidamos a tus mejores amigos con dedicación y amor.</p>
+
+    <div class="row mt-4">
+        <!-- Contenedor 1 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #4b7f52;">Administar</h5>
+                    <p class="card-text text-muted">Configuración del sistema</p>
+                    <button class="btn btn-outline-success" data-bs-toggle="collapse" data-bs-target="#collapseServicios">Más opciones</button>
+                    <div id="collapseServicios" class="collapse mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Personal", "Personal")" class="text-decoration-none text-dark">Adm. Personal</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Cliente", "Cliente")" class="text-decoration-none text-dark">Adm. Cliente</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Mascota", "Mascota")" class="text-decoration-none text-dark">Adm. Paciente</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Cargo", "Cargo")" class="text-decoration-none text-dark">Adm. Cargos</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Estado", "Estado")" class="text-decoration-none text-dark">Adm. Estado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor 2 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #4b7f52;">Citas</h5>
+                    <p class="card-text text-muted">Registar y Visualizar Citas</p>
+                    <button class="btn btn-outline-success" data-bs-toggle="collapse" data-bs-target="#collapseCitas">Más opciones</button>
+                    <div id="collapseCitas" class="collapse mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="@Url.Action("NuevoCliente", "Cliente")" class="text-decoration-none text-dark">Agendar Cita</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Citas", "Citas")" class="text-decoration-none text-dark">Verificar Cita</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("NuevoDiagnostico", "Diagnostico")" class="text-decoration-none text-dark">Gestión de Cita</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Receta", "Receta")" class="text-decoration-none text-dark">Administrar Recetas</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Tratamiento", "Tratamiento")" class="text-decoration-none text-dark">Administrar Tratamiento</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor 3 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #4b7f52;">Servicio</h5>
+                    <p class="card-text text-muted">Agregar Servicios.</p>
+                    <button class="btn btn-outline-success" data-bs-toggle="collapse" data-bs-target="#collapseAdopciones">Más opciones</button>
+                    <div id="collapseAdopciones" class="collapse mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Servicio", "Servicio")" class="text-decoration-none text-dark">Servicio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor 4 -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #4b7f52;">Finanzas</h5>
+                    <p class="card-text text-muted">Administracion de Finanzazs.</p>
+                    <button class="btn btn-outline-success" data-bs-toggle="collapse" data-bs-target="#collapseContacto">Más opciones</button>
+                    <div id="collapseContacto" class="collapse mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="@Url.Action("NuevoPago", "Pago")" class="text-decoration-none text-dark">Realizar Pago</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("DetallePago", "DetallePago")" class="text-decoration-none text-dark">Historial de pagos</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("MetodoPago", "MetodoPago")" class="text-decoration-none text-dark">Formas de pago</a>
+                            </li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

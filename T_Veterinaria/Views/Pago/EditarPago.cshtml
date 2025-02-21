@@ -1,0 +1,41 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarPago
+
+@{
+    ViewBag.Title = "Editar Pago";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 30rem;">
+        <h2 class="text-center">Editar Pago</h2>
+
+        @using (Html.BeginForm("EditarPago", "Pago", FormMethod.Post))
+        {
+            <div class="form-group mt-3">
+                @Html.HiddenFor(d => d.PagoID)
+
+                @Html.LabelFor(d => d.MetodoID, "Método de Pago", new { @class = "form-label" })
+                @Html.DropDownListFor(d => d.MetodoID, ViewBag.MetodosDePago as List<SelectListItem>, "Seleccione un método", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.MetodoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.FechaPago, "Fecha de Pago", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.FechaPago, new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(d => d.FechaPago, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.Monto, "Monto", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.Monto, new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Monto, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-4">
+                <a class="btn btn-outline-danger me-2" href="~/Pago/Pago">Cancelar</a>
+                <div class="ms-auto">
+                    <input value="Guardar" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarMascota
+
+@{
+    ViewBag.Title = "Editar Mascota";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Editar Mascota</h2>
+
+    @using (Html.BeginForm("EditarMascota", "Mascota", FormMethod.Post))
+    {
+        <div class="row">
+            @Html.HiddenFor(d => d.MascotaID)
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.ClienteID, "Cliente ID", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.ClienteID, "", new { @class = "form-control", placeholder = "Ingrese el ID del cliente" })
+                @Html.ValidationMessageFor(d => d.ClienteID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Nombre, "Nombre", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control", placeholder = "Ingrese el nombre de la mascota" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Especie, "Especie", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Especie, "", new { @class = "form-control", placeholder = "Ingrese la especie" })
+                @Html.ValidationMessageFor(d => d.Especie, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Raza, "Raza", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Raza, "", new { @class = "form-control", placeholder = "Ingrese la raza" })
+                @Html.ValidationMessageFor(d => d.Raza, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Edad, "Edad", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Edad, "", new { @class = "form-control", placeholder = "Ingrese la edad en años" })
+                @Html.ValidationMessageFor(d => d.Edad, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <a class="btn btn-outline-danger me-2" href="~/Mascota/Mascota">Cancelar</a>
+            <input value="Guardar" class="btn btn-primary px-4" type="submit" />
+        </div>
+    }
+</div>

@@ -1,0 +1,29 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarTratamiento
+
+@{
+    ViewBag.Title = "Editar Tratamiento";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 30rem;">
+        <h2 class="text-center">Editar Tratamiento</h2>
+
+        @using (Html.BeginForm("EditarTratamiento", "Tratamiento", FormMethod.Post))
+        {
+            @Html.HiddenFor(d => d.TratamientoID)
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.Detalles, "Detalles del Tratamiento", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.Detalles, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Detalles, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-4">
+                <a class="btn btn-outline-danger me-2" href="~/Tratamiento/Tratamiento">Cancelar</a>
+                <div class="ms-auto">
+                    <input value="Guardar" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

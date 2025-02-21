@@ -1,0 +1,45 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarServicioViewModels>
+@{
+    ViewBag.Title = "Servicio";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Listado de Servicios</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver al Inicio</a>
+        <a class="btn btn-outline-success" href="~/Servicio/NuevoServicio">Agregar Servicio</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>ServicioID</th>
+                    <th>Nombre del Servicio</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Duración (Minutos)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.ServicioID</td>
+                        <td>@oElement.NombreServicio</td>
+                        <td>@oElement.Descripcion</td>
+                        <td>@oElement.Precio</td>
+                        <td>@oElement.DuracionMinutos Minutos</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Servicio/EditarServicio/@oElement.ServicioID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Servicio/EliminarServicio/@oElement.ServicioID"
+                               onclick="return confirm('¿Seguro que desea eliminar este servicio?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<T_Veterinaria.Models.ViewModels.DiagnosticoViewModels>
+@{
+    ViewBag.Title = "VisualizarDiagnostico";
+}
+
+<h2 class="text-center mt-4">Descripcion de Diagnostico</h2>
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group my-3">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <strong>Descripcion:</strong> @item.Descripcion
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-center text-muted">No hay Descripcion disponibles para esta Diagnostico.</p>
+}
+
+<div class="text-center mt-3">
+    <a href="@Url.Action("Diagnostico", "Diagnostico")" class="btn btn-primary">Volver a la Lista de Diagnostico</a>
+</div>

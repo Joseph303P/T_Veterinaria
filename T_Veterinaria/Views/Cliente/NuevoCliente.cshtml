@@ -1,0 +1,55 @@
+﻿@model T_Veterinaria.Models.New.NuevoCliente
+@{
+    ViewBag.Title = "Nuevo Cliente";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Nuevo Cliente</h2>
+
+    @using (Html.BeginForm("NuevoCliente", "Cliente", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.NombreCliente, "Nombre", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.NombreCliente, new { @class = "form-control", placeholder = "Ingrese el nombre del cliente" })
+                @Html.ValidationMessageFor(d => d.NombreCliente, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Apellido, "Apellido", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Apellido, new { @class = "form-control", placeholder = "Ingrese el apellido del cliente" })
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Telefono, "Teléfono", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Telefono, new { @class = "form-control", placeholder = "Ingrese el teléfono del cliente" })
+                @Html.ValidationMessageFor(d => d.Telefono, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Email, "Correo Electrónico", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Email, new { @class = "form-control", placeholder = "Ingrese el correo del cliente" })
+                @Html.ValidationMessageFor(d => d.Email, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Direccion, "Dirección", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Direccion, new { @class = "form-control", placeholder = "Ingrese la dirección del cliente" })
+                @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.DNI, "DNI", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.DNI, new { @class = "form-control", placeholder = "Ingrese el DNI del cliente" })
+                @Html.ValidationMessageFor(d => d.DNI, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-success px-4">Guardar Cliente</button>
+            <a href="~/Cliente/Cliente" class="btn btn-secondary">Cancelar</a>
+            <a href="~/Home/Index" class="btn btn-primary">Regresar a Inicio</a> <!-- Botón de regresar a Home -->
+        </div>
+    }
+</div>

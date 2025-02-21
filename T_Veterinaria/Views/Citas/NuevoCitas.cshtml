@@ -1,0 +1,67 @@
+﻿@model T_Veterinaria.Models.ViewModels.ListarCitasViewModels
+
+@{
+    ViewBag.Title = "Nueva Cita";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Registrar Nueva Cita</h2>
+
+    @using (Html.BeginForm("NuevoCitas", "Citas", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.MascotaID, "Mascota", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.MascotaID, new { @class = "form-control", placeholder = "Ingrese o seleccione un ID de Mascota", id = "MascotaID" })
+                @Html.ValidationMessageFor(d => d.MascotaID, null, new { @class = "text-danger" })
+
+                <select id="MascotasDropdown" class="form-select mt-2" onchange="setMascotaID(this)">
+                    <option value="">Seleccionar una mascota</option>
+                    @foreach (var mascota in (IEnumerable<SelectListItem>)ViewBag.MascotasDisponibles)
+                    {
+                        <option value="@mascota.Value">@mascota.Text</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.EmpleadoID, "Empleado", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.EmpleadoID, (IEnumerable<SelectListItem>)ViewBag.EmpleadosDisponibles, "Seleccionar un empleado", new { @class = "form-select" })
+                @Html.ValidationMessageFor(d => d.EmpleadoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.ServicioID, "Servicio", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.ServicioID, (IEnumerable<SelectListItem>)ViewBag.ServiciosDisponibles, "Seleccionar un servicio", new { @class = "form-select" })
+                @Html.ValidationMessageFor(d => d.ServicioID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.FechaCita, "Fecha de la Cita", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.FechaCita, new { @class = "form-control", type = "datetime-local" })
+                @Html.ValidationMessageFor(d => d.FechaCita, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.EstadoID, "Estado de la Cita", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.EstadoID, (IEnumerable<SelectListItem>)ViewBag.Estado_Cita, "Estado de la cita", new { @class = "form-select" })
+                @Html.ValidationMessageFor(d => d.EstadoID, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary px-4">Guardar Cita</button>
+            <a class="btn btn-outline-danger me-2" href="~/Mascota/NuevoMascota">Volver</a>
+        </div>
+    }
+</div>
+
+<script>
+    // Función para actualizar el campo de texto MascotaID al seleccionar una mascota del dropdown
+    function setMascotaID(dropdown) {
+        var selectedValue = dropdown.value;
+        if (selectedValue) {
+            document.getElementById('MascotaID').value = selectedValue;
+        }
+    }
+</script>

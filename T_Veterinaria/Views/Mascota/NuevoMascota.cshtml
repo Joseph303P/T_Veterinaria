@@ -1,0 +1,66 @@
+﻿@model T_Veterinaria.Models.New.NuevaMascota
+
+@{
+    ViewBag.Title = "Registrar Nueva Mascota";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Registrar Nueva Mascota</h2>
+
+    @using (Html.BeginForm("NuevoMascota", "Mascota", FormMethod.Post))
+    {
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.ClienteID, "Cliente ID", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.ClienteID, new { @class = "form-control", placeholder = "Seleccione un cliente", @id = "ClienteID", @readonly = "readonly" })
+                @Html.ValidationMessageFor(d => d.ClienteID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.ClienteID, "Seleccionar Cliente", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.ClienteID, (IEnumerable<SelectListItem>)ViewBag.ClientesDisponibles, "Seleccione un Cliente", new { @class = "form-select", @id = "clientesDropdown" })
+                @Html.ValidationMessageFor(d => d.ClienteID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Nombre, "Nombre de la Mascota", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Nombre, new { @class = "form-control", placeholder = "Ingrese el nombre" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Especie, "Especie", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Especie, new { @class = "form-control", placeholder = "Ingrese la especie" })
+                @Html.ValidationMessageFor(d => d.Especie, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Raza, "Raza", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Raza, new { @class = "form-control", placeholder = "Ingrese la raza" })
+                @Html.ValidationMessageFor(d => d.Raza, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Edad, "Edad", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Edad, new { @class = "form-control", placeholder = "Ingrese la edad" })
+                @Html.ValidationMessageFor(d => d.Edad, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <a class="btn btn-outline-danger me-2" href="~/Cliente/NuevoCliente">Volver</a>
+            <a class="btn btn-outline-danger me-2" href="~/Citas/NuevoCitas">Siguiente</a>
+            <input value="Guardar" class="btn btn-primary px-4" type="submit" />
+        </div>
+    }
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('clientesDropdown').addEventListener('change', function () {
+            var selectedClientId = this.value;
+            document.getElementById('ClienteID').value = selectedClientId;
+        });
+    });
+</script>

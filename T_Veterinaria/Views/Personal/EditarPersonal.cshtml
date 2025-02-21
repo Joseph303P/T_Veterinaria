@@ -1,0 +1,64 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarPersonal
+
+@{
+    ViewBag.Title = "EditarPersonal";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Editar Información del Personal</h2>
+
+    @using (Html.BeginForm("EditarPersonal", "Personal", FormMethod.Post))
+    {
+        @Html.HiddenFor(d => d.EmpleadoID)
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.CargoId, "Cargo", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.CargoId, (IEnumerable<SelectListItem>)ViewBag.Cargos, "Seleccione un Cargo", new { @class = "form-select" })
+                @Html.ValidationMessageFor(d => d.CargoId, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Nombre, "Nombre", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Apellido, "Apellido", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Apellido, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Telefono, "Teléfono", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Telefono, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Telefono, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Email, "Email", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Email, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Direccion, "Dirección", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.DNI, "DNI", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.DNI, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.DNI, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="text-end">
+            <a class="btn btn-outline-danger me-2" href="~/Personal/Personal">Cancelar</a>
+            <input value="Guardar" class="btn btn-primary px-4" type="submit" />
+        </div>
+    }
+</div>
+

@@ -1,0 +1,41 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarReceta
+
+@{
+    ViewBag.Title = "Editar Receta";
+}
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 30rem;">
+        <h2 class="text-center">Editar Receta</h2>
+
+        @using (Html.BeginForm("EditarReceta", "Receta", FormMethod.Post))
+        {
+            @Html.HiddenFor(d => d.RecetaID)
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.DiagnosticoID, "Diagnóstico", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.DiagnosticoID, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.DiagnosticoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.TratamientoID, "Tratamiento", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.TratamientoID, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.TratamientoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-3">
+                @Html.LabelFor(d => d.Indicaciones, "Indicaciones", new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.Indicaciones, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Indicaciones, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-4">
+                <a class="btn btn-outline-danger me-2" href="~/Receta/Receta">Cancelar</a>
+                <div class="ms-auto">
+                    <input value="Guardar" class="btn btn-primary" type="submit" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

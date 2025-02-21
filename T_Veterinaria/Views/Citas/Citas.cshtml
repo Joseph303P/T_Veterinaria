@@ -1,0 +1,55 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarCitasViewModels>
+
+@{
+    ViewBag.Title = "Citas";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Lista de Citas</h2>
+
+    <!-- Formulario de búsqueda y botones al lado -->
+    @using (Html.BeginForm("Citas", "Citas", FormMethod.Get))
+    {
+        <div class="form-group d-flex align-items-center mb-4">
+            <label for="citaIDFiltro" class="me-2">Buscar por CitaID:</label>
+            <input type="text" id="citaIDFiltro" name="citaIDFiltro" class="form-control me-2" placeholder="Ingrese CitaID" />
+            <button type="submit" class="btn btn-primary me-2">Filtrar</button>
+
+            <a class="btn btn-outline-dark me-2" href="~/Home/Index">Volver al Inicio</a>
+        </div>
+    }
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>CitaID</th>
+                    <th>MascotaID</th>
+                    <th>EmpleadoID</th>
+                    <th>FechaCita</th>
+                    <th>ServicioID</th>
+                    <th>EstadoID</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.CitaID</td>
+                        <td>@oElement.MascotaID</td>
+                        <td>@oElement.EmpleadoID</td>
+                        <td>@oElement.FechaCita</td>
+                        <td>@oElement.ServicioID</td>
+                        <td>@oElement.EstadoID</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="~/Citas/EditarCitas/@oElement.CitaID">Editar</a>
+                            <a class="btn btn-outline-danger" href="~/Citas/EliminarCita/@oElement.CitaID"
+                               onclick="return confirm('¿Seguro que desea eliminar esta cita?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

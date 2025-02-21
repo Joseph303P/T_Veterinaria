@@ -1,0 +1,52 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarCitas
+
+@{
+    ViewBag.Title = "Editar Citas";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Editar Cita</h2>
+
+    @using (Html.BeginForm("EditarCitas", "Citas", FormMethod.Post))
+    {
+        @Html.HiddenFor(d => d.CitaID)
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.MascotaID, "Mascota", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.MascotaID, new { @class = "form-control", placeholder = "Ingrese el ID de la mascota" })
+                @Html.ValidationMessageFor(d => d.MascotaID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.ServicioID, "Servicio", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.ServicioID, (IEnumerable<SelectListItem>)ViewBag.ServiciosDisponibles, "Seleccione un Servicio", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.ServicioID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.EmpleadoID, "Empleado", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.EmpleadoID, (IEnumerable<SelectListItem>)ViewBag.EmpleadosDisponibles, "Seleccione un Empleado", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.EmpleadoID, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.FechaCita, "Fecha de la Cita", new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.FechaCita, new { @class = "form-control", type = "datetime-local" })
+                @Html.ValidationMessageFor(d => d.FechaCita, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.EstadoID, "Estado de la Cita", new { @class = "form-label fw-bold" })
+                @Html.DropDownListFor(d => d.EstadoID, (IEnumerable<SelectListItem>)ViewBag.Estado_Cita, "Seleccione un Estado", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.EstadoID, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Botón de guardar -->
+        <div class="text-end">
+            <input value="Guardar" class="btn btn-primary px-4" type="submit" />
+            <a href="@Url.Action("Citas", "Citas")" class="btn btn-secondary px-4 ms-2">Cancelar</a>
+        </div>
+    }
+</div>

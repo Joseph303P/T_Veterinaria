@@ -1,0 +1,54 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarPersonalViewModels>
+@{
+    ViewBag.Title = "Personal";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Personal</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-primary me-2" href="~/Personal/Cargo_Personal">Funcion del personal</a>
+        <a class="btn btn-outline-success" href="~/Personal/NuevoPersonal">Agregar Personal</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>EmpleadoID</th>
+                    <th>CargoID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Informacion del Personal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.EmpleadoID</td>
+                        <td>@oElement.CargoId</td>
+                        <td>@oElement.NombrePersona</td>
+                        <td>@oElement.Apellido</td>
+                        <td>
+                            <a class="btn btn-light btn-sm mt-1" href="~/Personal/Inf_Personal_Empleado?EmpleadoID=@oElement.EmpleadoID">Ver Información</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm me-1" href="~/Personal/EditarPersonal/@oElement.EmpleadoID">Editar</a>
+                            <a class="btn btn-outline-danger btn-sm" href="~/Personal/EliminarPersonal/@oElement.EmpleadoID"
+                               onclick="return confirm('¿Seguro que desea eliminar este registro?')">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-secondary me-2" href="~/Home/Index">Volver</a>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarPersonalViewModels>
+@{
+    ViewBag.Title = "Cargo_Personal";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Cargos del Personal</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-secondary me-2" href="~/Personal/Personal">Volver a Personal</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.NombrePersona</td>
+                        <td>@oElement.Apellido</td>
+                        <td>@oElement.Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

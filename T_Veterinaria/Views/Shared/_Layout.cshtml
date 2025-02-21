@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Veterinaria</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar {
+            background-color: #4b7f52; 
+            justify-content: center; 
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem; 
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .navbar-brand:hover {
+                color: #d4edda !important; 
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            padding: 1rem 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            @Html.ActionLink("Veterinaria Amigo Fiel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Veterinaria Amigo Fiel. Todos los derechos reservados.</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

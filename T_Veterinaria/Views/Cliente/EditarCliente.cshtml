@@ -1,0 +1,55 @@
+﻿@model T_Veterinaria.Models.ViewModels.Editar.EditarCliente
+@{
+    ViewBag.Title = "Editar Cliente";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Editar Cliente</h2>
+
+    @using (Html.BeginForm("EditarCliente", "Cliente", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.HiddenFor(d => d.ClienteID)
+                @Html.LabelFor(d => d.Nombre, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control", placeholder = "Ingrese el nombre" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Apellido, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Apellido, "", new { @class = "form-control", placeholder = "Ingrese el apellido" })
+                @Html.ValidationMessageFor(d => d.Apellido, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Telefono, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Telefono, "", new { @class = "form-control", placeholder = "Ingrese el teléfono" })
+                @Html.ValidationMessageFor(d => d.Telefono, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Email, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control", placeholder = "Ingrese el correo electrónico" })
+                @Html.ValidationMessageFor(d => d.Email, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.Direccion, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control", placeholder = "Ingrese la dirección" })
+                @Html.ValidationMessageFor(d => d.Direccion, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(d => d.DNI, new { @class = "form-label fw-bold" })
+                @Html.TextBoxFor(d => d.DNI, "", new { @class = "form-control", placeholder = "Ingrese el DNI" })
+                @Html.ValidationMessageFor(d => d.DNI, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Botón de guardar -->
+        <div class="text-end">
+            <input value="Guardar" class="btn btn-primary px-4" type="submit" />
+        </div>
+    }
+</div>

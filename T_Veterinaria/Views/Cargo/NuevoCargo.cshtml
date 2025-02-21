@@ -1,0 +1,24 @@
+﻿@model T_Veterinaria.Models.New.NuevoCargo
+@{
+    ViewBag.Title = "NuevoCargo";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="p-4 bg-light shadow rounded" style="width: 100%; max-width: 500px;">
+        <h2 class="text-center mb-4">Nuevo Cargo</h2>
+
+        @using (Html.BeginForm("NuevoCargo", "Cargo", FormMethod.Post))
+        {
+            <div class="mb-3">
+                @Html.LabelFor(d => d.Descripcion, new { @class = "form-label" })
+                @Html.TextBoxFor(d => d.Descripcion, "", new { @class = "form-control text-center" })
+                @Html.ValidationMessageFor(d => d.Descripcion, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-outline-danger me-2" href="~/Cargo/Cargo">Cancelar</a>
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        }
+    </div>
+</div>

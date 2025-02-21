@@ -1,0 +1,28 @@
+﻿@model IEnumerable<T_Veterinaria.Models.ViewModels.TratamientoViewModels>
+@{
+    ViewBag.Title = "VisualizarTrataimiento";
+}
+
+<h2 class="text-center mt-4">Detalle de Tratamiento</h2>
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group my-3">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <strong>Detalles</strong> @item.Detalles
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-center text-muted">No hay detalle disponibles para esta Tratamiento.</p>
+}
+
+<div class="text-center mt-3">
+    <a href="@Url.Action("Tratamiento", "Tratamiento")" class="btn btn-primary">Volver a la Lista de Tratamiento</a>
+</div>
+

@@ -1,0 +1,41 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarMascotaViewModels>
+
+@{
+    ViewBag.Title = "Cliente_Mascota";
+}
+
+<div class="container mt-5 p-4 bg-light shadow rounded">
+    <h2 class="text-center mb-4">Mascotas de Clientes</h2>
+
+    <div class="d-flex justify-content-center mb-4">
+        <a class="btn btn-outline-secondary me-2" href="~/Mascota/Mascota">Volver</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>MascotaID</th>
+                    <th>Cliente</th>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var oElement in Model)
+                {
+                    <tr>
+                        <td>@oElement.MascotaID</td>
+                        <td>@oElement.NombreCliente</td>
+                        <td>@oElement.Nombre</td>
+                        <td>@oElement.Especie</td>
+                        <td>@oElement.Raza</td>
+                        <td>@oElement.Edad</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

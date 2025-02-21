@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Veterinaria_BDModelStoreContainer" CdmEntityContainer="Veterinaria_BDEntities">
+    <EntitySetMapping Name="Cargo">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Cargo">
+        <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="Cargo_Id" ColumnName="Cargo_Id" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="CitaID" ColumnName="CitaID" />
+          <ScalarProperty Name="MascotaID" ColumnName="MascotaID" />
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="FechaCita" ColumnName="FechaCita" />
+          <ScalarProperty Name="ServicioID" ColumnName="ServicioID" />
+          <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="NombrePersona" ColumnName="NombrePersona" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detalle_Pago">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Detalle_Pago">
+        <MappingFragment StoreEntitySet="Detalle_Pago">
+          <ScalarProperty Name="DetalleID" ColumnName="DetalleID" />
+          <ScalarProperty Name="PagoID" ColumnName="PagoID" />
+          <ScalarProperty Name="CitaID" ColumnName="CitaID" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diagnostico">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Diagnostico">
+        <MappingFragment StoreEntitySet="Diagnostico">
+          <ScalarProperty Name="DiagnosticoID" ColumnName="DiagnosticoID" />
+          <ScalarProperty Name="CitaID" ColumnName="CitaID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mascota">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Mascota">
+        <MappingFragment StoreEntitySet="Mascota">
+          <ScalarProperty Name="MascotaID" ColumnName="MascotaID" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Especie" ColumnName="Especie" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metodo_Pago">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Metodo_Pago">
+        <MappingFragment StoreEntitySet="Metodo_Pago">
+          <ScalarProperty Name="MetodoID" ColumnName="MetodoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pago">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Pago">
+        <MappingFragment StoreEntitySet="Pago">
+          <ScalarProperty Name="PagoID" ColumnName="PagoID" />
+          <ScalarProperty Name="MetodoID" ColumnName="MetodoID" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="Cargo_Id" ColumnName="Cargo_Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receta">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Receta">
+        <MappingFragment StoreEntitySet="Receta">
+          <ScalarProperty Name="RecetaID" ColumnName="RecetaID" />
+          <ScalarProperty Name="DiagnosticoID" ColumnName="DiagnosticoID" />
+          <ScalarProperty Name="TratamientoID" ColumnName="TratamientoID" />
+          <ScalarProperty Name="Indicaciones" ColumnName="Indicaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="ServicioID" ColumnName="ServicioID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="DuracionMinutos" ColumnName="DuracionMinutos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tratamiento">
+      <EntityTypeMapping TypeName="Veterinaria_BDModel.Tratamiento">
+        <MappingFragment StoreEntitySet="Tratamiento">
+          <ScalarProperty Name="TratamientoID" ColumnName="TratamientoID" />
+          <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

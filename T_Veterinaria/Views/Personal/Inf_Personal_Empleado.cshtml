@@ -1,0 +1,45 @@
+﻿@model List<T_Veterinaria.Models.ViewModels.ListarPersonalViewModels>
+@{
+    ViewBag.Title = "Inf_Personal_Empleado";
+}
+
+<h2>Inf_Personal_Empleado</h2>
+
+<div class="container mt-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Información del Personal</h2>
+            <hr />
+
+            @if (Model != null && Model.Any())
+            {
+                <ul class="list-group my-3">
+                    @foreach (var oPersonal in Model)
+                    {
+                        <li class="list-group-item">
+                            <strong>Teléfono:</strong> @oPersonal.Telefono
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong> @oPersonal.Email
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Dirección:</strong> @oPersonal.Direccion
+                        </li>
+                        <li class="list-group-item">
+                            <strong>DNI:</strong> @oPersonal.DNI
+                        </li>
+
+                    }
+                </ul>
+            }
+            else
+            {
+        <p class="text-center text-muted">No hay detalles disponibles para este Empleado.</p>
+            }
+
+            <div class="text-center mt-4">
+                <a href="@Url.Action("Personal", "Personal")" class="btn btn-primary">Volver a la Lista del Personal</a>
+            </div>
+        </div>
+    </div>
+</div>

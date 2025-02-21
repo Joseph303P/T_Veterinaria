@@ -1,0 +1,42 @@
+﻿@model IEnumerable<T_Veterinaria.Models.ViewModels.ListarClienteViewModels>
+@{
+    ViewBag.Title = "Informacion_Personal";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Información Personal del Cliente</h2>
+            <hr />
+
+            @if (Model != null && Model.Any())
+            {
+                <ul class="list-group my-3">
+                    @foreach (var oClient in Model)
+                    {
+                        <li class="list-group-item">
+                            <strong>Teléfono:</strong> @oClient.Telefono
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong> @oClient.Email
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Dirección:</strong> @oClient.Direccion
+                        </li>
+                        <li class="list-group-item">
+                            <strong>DNI:</strong> @oClient.DNI
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-center text-muted">No hay detalles disponibles para este cliente.</p>
+            }
+
+            <div class="text-center mt-4">
+                <a href="@Url.Action("Cliente", "Cliente")" class="btn btn-primary">Volver a la Lista de Clientes</a>
+            </div>
+        </div>
+    </div>
+</div>
